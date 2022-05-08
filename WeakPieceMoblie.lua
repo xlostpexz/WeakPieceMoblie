@@ -1002,6 +1002,10 @@ Home2:CreateButton("Remove Name",function(value)
     game.Players.LocalPlayer.PlayerGui.MainUI.HUD.Playername:Destroy()
 end)
 
+Home2:CreateButton("Open Inventory",function(value)
+fireclickdetector(game:GetService("Workspace")["Inventory_Part"].Inventory.Click.ClickDetector)
+end)
+
     Home3:CreateButton("First Island",function(value)
         game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(11.7174263, 6.75673771, 99.9803696, 0.93037051, 9.21774514e-08, -0.366620719, -7.65244863e-08, 1, 5.72289771e-08, 0.366620719, -2.51886902e-08, 0.93037051)
     end)
