@@ -923,6 +923,12 @@ local Home2 = DinoPage2:NewSection("Misc")
 local Home3 = DinoPage3:NewSection("Teleport")
 local Home4 = DinoPage4:NewSection("Auto Eqiup")
 
+    Home:CreateToggle("Auto Sea Warriors",function(value)
+       _G.SW = value
+       _G.NoClip = value
+       _G.Click = value
+    end)
+
     Home:CreateToggle("Auto Shanks",function(value)
        _G.Shanks = value
        _G.NoClip = value
@@ -1313,3 +1319,13 @@ game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Wo
         end)
        end)
         end)
+        
+    spawn(function()
+       game:GetService("RunService").RenderStepped:Connect(function()
+        pcall(function()
+            if _G.SW then
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").SeaWarrior["Sea Warrior"].HumanoidRootPart.CFrame * CFrame.new(0,Disc2,Disc)
+            end
+        end)
+       end)
+    end)
