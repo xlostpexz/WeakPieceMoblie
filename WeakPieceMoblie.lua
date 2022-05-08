@@ -917,9 +917,11 @@ local DinoWindow = Dino:CreateWindow("Weak Piece [Moblie] ")
 local DinoPage = DinoWindow:NewPage("Main")
 local DinoPage2 = DinoWindow:NewPage("Misc")
 local DinoPage3 = DinoWindow:NewPage("Teleport")
+local DinoPage4 = DinoWindow:NewPage("Auto Eqiup")
 local Home = DinoPage:NewSection("Auto Farm")
 local Home2 = DinoPage2:NewSection("Misc")
 local Home3 = DinoPage3:NewSection("Teleport")
+local Home4 = DinoPage4:NewSection("Auto Eqiup")
 
     Home:CreateToggle("Auto Shanks",function(value)
        _G.Shanks = value
@@ -981,7 +983,25 @@ local Home3 = DinoPage3:NewSection("Teleport")
        _G.NoClip = value
        _G.Click = value
     end)
+    
+local Weaponlist = {}
+local Weapon = nil
 
+for i,v in pairs(game:GetService("Players").LocalPlayer.Backpack:GetChildren()) do
+    table.insert(Weaponlist,v.Name)
+end
+
+    Home4:CreateToggle("Auto Eqiup",function(value)
+        _G.Eqiup = value
+        while _G.Eqiup do wait()
+            game.Players.LocalPlayer.Character.Humanoid:EquipTool(game:GetService("Players").LocalPlayer.Backpack:FindFirstChild(Weapon))
+        end
+    end)
+    
+    Home4:CreateDropdown("Please Select Your Weapon",Weaponlist ,function(value)
+        Weapon = value
+    end)
+    
 Home2:CreateToggle("Bring Fruits",function(value)
           _G.PUF = value
       while _G.PUF do wait()
