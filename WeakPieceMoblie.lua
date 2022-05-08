@@ -915,9 +915,18 @@ end
 
 local DinoWindow = Dino:CreateWindow("Weak Piece [Moblie] ")
 local DinoPage = DinoWindow:NewPage("Main")
-local Home = DinoPage:NewSection("Main")
+local DinoPage2 = DinoWindow:NewPage("Misc")
+local Home = DinoPage:NewSection("Auto Farm")
 
-Home:CreateToggle("Bring Fruits",function(value)
+local Home2 = DinoPage2:NewSection("Misc")
+
+Home:CreateToggle("Auto Enel",function(value)
+    _G.Enel = value
+    _G.Click = value
+    _G.NoClip = value
+end)
+
+Home2:CreateToggle("Bring Fruits",function(value)
           _G.PUF = value
       while _G.PUF do wait()
 for i,v in pairs(game:GetService("Workspace")["???"]:GetDescendants()) do
@@ -930,3 +939,34 @@ end
 end
         end
 end)
+
+    spawn(function()
+       game:GetService("RunService").RenderStepped:Connect(function()
+        pcall(function()
+        if _G.Enel then
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Enemy.SkyPiea.Enel.HumanoidRootPart.CFrame * CFrame.new(0,1,4)
+            end
+        end)
+       end)
+    end)
+    
+    spawn(function()
+        game:GetService("RunService").Heartbeat:Connect(function()
+            if game:GetService("Players").LocalPlayer.Character:FindFirstChild("Humanoid") and _G.NoClip then
+                setfflag("HumanoidParallelRemoveNoPhysics", "False")
+                setfflag("HumanoidParallelRemoveNoPhysicsNoSimulate2", "False")
+                game:GetService("Players").LocalPlayer.Character.Humanoid:ChangeState(11)
+            end
+        end)
+    end)
+
+        spawn(function()
+       game:GetService("RunService").RenderStepped:Connect(function()
+        pcall(function()
+            if _G.Click then
+            game:GetService'VirtualUser':CaptureController()
+            game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
+            end
+        end)
+       end)
+        end)
