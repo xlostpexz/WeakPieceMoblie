@@ -1,4 +1,4 @@
-local DINOHUB = Instance.new("ScreenGui")
+ local DINOHUB = Instance.new("ScreenGui")
 local OPENCLOSE = Instance.new("TextButton")
 
 
@@ -922,58 +922,11 @@ local Home = DinoPage:NewSection("Auto Farm")
 local Home2 = DinoPage2:NewSection("Misc")
 local Home3 = DinoPage3:NewSection("Teleport")
 local Home4 = DinoPage4:NewSection("Auto Eqiup")
-
-    Home:CreateToggle("Kill All",function(value)
-       _G.Killall = value
-while _G.Killall do wait()
-    local bosses = {workspace["[JOR]"],workspace["[MRMS]"],workspace["[Ace]"],workspace.Heaven}
-
-task.spawn(function()
-    while wait(1) do
-        pcall(function()
-            for _,v in pairs(bosses) do
-                fireclickdetector(v.ClickDetector)
-            end
-            for i,v2 in pairs(game.Players:GetChildren()) do
-                for _,v in pairs(v2.Backpack:GetChildren()) do
-                    if v:FindFirstChild("DF") and v:FindFirstChild("Event") then
-                        if v.Name == "Explosion" then
-                            v.Event:FireServer("Explosive")
-                        else
-                            v.Event:FireServer(v.Name.."Punch")
-                            v.Event:FireServer(v.Name)
-                        end
-                    end
-                end
-                if v2.Character then
-                    for _,v in pairs(v2.Character:GetChildren()) do
-                        if v:FindFirstChild("DF") and v:FindFirstChild("Event") then
-                            if v.Name == "Explosion" then
-                                v.Event:FireServer("Explosive")
-                            else
-                                v.Event:FireServer(v.Name.."Punch")
-                                v.Event:FireServer(v.Name)
-                            end
-                        end
-                    end
-                end
-            end
-        end)
-    end
-end)
-
-while wait(0.2) do
-    for i,v2 in pairs(workspace.Enemy:GetChildren()) do
-        for _,v in pairs(v2:GetChildren()) do
-            if v:FindFirstChild("HumanoidRootPart") and v:FindFirstChild("Humanoid") and v.Humanoid.Health > 0 then
-                game:GetService("ReplicatedStorage").Remote.Skills:FireServer("MMExplosion", 9e18, v.HumanoidRootPart.CFrame)
-                game:GetService("ReplicatedStorage").Remote.Skills:FireServer("MExplosion", 9e18, v.HumanoidRootPart.CFrame)
-                game:GetService("ReplicatedStorage").Remote.Skills:FireServer("Explosion", 9e18, v.HumanoidRootPart.CFrame)
-            end
-        end
-    end
-end
-    end
+    
+    Home:CreateToggle("Auto KenShin",function(value)
+       _G.KS = value
+       _G.NoClip = value
+       _G.Click = value
     end)
     
     Home:CreateToggle("Auto Sea Warriors",function(value)
@@ -1180,7 +1133,7 @@ fireclickdetector(game:GetService("Workspace")["Inventory_Part"].Inventory.Click
 end)
 
     Home3:CreateButton("First Island",function(value)
-        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(11.7174263, 6.75673771, 99.9803696, 0.93037051, 9.21774514e-08, -0.366620719, -7.65244863e-08, 1, 5.72289771e-08, 0.366620719, -2.51886902e-08, 0.93037051)
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-1.98912048, 10.5289278, 361.583801, 0.965929627, 0, 0.258804798, 0, 1, 0, -0.258804798, 0, 0.965929627)
     end)
 
     Home3:CreateButton("Forest Island",function(value)
@@ -1210,6 +1163,10 @@ end)
 
     Home3:CreateButton("Red Forest Island",function(value)
         game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-1429.4447, 10.4301357, -293.121124, 0.0388498269, 7.43226847e-05, -0.999243855, 4.31531589e-05, 1, 7.605664e-05, 0.999243855, -4.6075329e-05, 0.0388498269)
+    end)
+    
+    Home3:CreateButton("Samurai Island",function(value)
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-483.586121, 23.8142891, 2270.51099, 0.979095757, -9.60915472e-08, 0.203399837, 1.02889423e-07, 1, -2.28469066e-08, -0.203399837, 4.32970033e-08, 0.979095757)
     end)
 
     spawn(function()
@@ -1317,6 +1274,16 @@ game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Wo
         pcall(function()
             if _G.DB then
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Enemy.Sahara["Desert Bandit"].HumanoidRootPart.CFrame * CFrame.new(0,1,4)
+            end
+        end)
+       end)
+    end)
+    
+    spawn(function()
+       game:GetService("RunService").RenderStepped:Connect(function()
+        pcall(function()
+            if _G.KS then
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Enemy.Samurai.Kenshin.HumanoidRootPart.CFrame * CFrame.new(0,-9,1280)
             end
         end)
        end)
