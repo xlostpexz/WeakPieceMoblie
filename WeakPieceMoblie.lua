@@ -1185,6 +1185,9 @@ game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Wo
         pcall(function()
             if _G.Bandit then
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Enemy.FirstIsland.Bandit.HumanoidRootPart.CFrame * CFrame.new(0,1,4)
+if game:GetService("Workspace").Enemy.FirstIsland.Bandit.Humanoid.Health == 0 then
+                           game:GetService("Workspace").Enemy.FirstIsland.Bandit:Destroy()
+end
             end
         end)
        end)
@@ -1205,6 +1208,9 @@ game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Wo
         pcall(function()
             if _G.ZB then
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Enemy.Mushroom.Zombie.HumanoidRootPart.CFrame * CFrame.new(0,1,4)
+if game:GetService("Workspace").Enemy.Mushroom.Zombie.Humanoid.Health == 0 then
+                           game:GetService("Workspace").Enemy.Mushroom.Zombie:Destroy()
+end
             end
         end)
        end)
@@ -1335,6 +1341,9 @@ game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Wo
         pcall(function()
             if _G.SMR then
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Enemy.ForestIsland.Samurai.HumanoidRootPart.CFrame * CFrame.new(0,1,4)
+if game:GetService("Workspace").Enemy.ForestIsland.Samurai.Humanoid.Health == 0 then
+                           game:GetService("Workspace").Enemy.ForestIsland.Samurai:Destroy()
+end
             end
         end)
        end)
