@@ -922,6 +922,10 @@ local Home = DinoPage:NewSection("Auto Farm")
 local Home2 = DinoPage2:NewSection("Misc")
 local Home3 = DinoPage3:NewSection("Teleport")
 local Home4 = DinoPage4:NewSection("Auto Eqiup")
+
+    Home:CreateToggle("Kill Aura - Need Pika Fruit [Light Fruit]",function(value)
+       _G.KillAll = value
+    end)
     
     Home:CreateToggle("Auto KenShin",function(value)
        _G.KS = value
@@ -1005,9 +1009,6 @@ end
 
     Home4:CreateToggle("Auto Eqiup",function(value)
         _G.Eqiup = value
-        while _G.Eqiup do wait()
-            game.Players.LocalPlayer.Character.Humanoid:EquipTool(game:GetService("Players").LocalPlayer.Backpack:FindFirstChild(Weapon))
-        end
     end)
     
     Home4:CreateDropdown("Please Select Your Weapon",Weaponlist ,function(value)
@@ -1232,6 +1233,23 @@ fireclickdetector(game:GetService("Workspace")["[Ace]"].ClickDetector)
     spawn(function()
        game:GetService("RunService").RenderStepped:Connect(function()
         pcall(function()
+            if _G.KillAll then
+        while task.wait() do
+                    local args = {
+                        [1] = "RainLight"
+                    }
+                    game:GetService("Players").LocalPlayer.Character.Light.Event:FireServer(unpack(args))
+        wait()
+        break
+        end
+        end
+        end)
+   end)
+    end)
+    
+    spawn(function()
+       game:GetService("RunService").RenderStepped:Connect(function()
+        pcall(function()
             if _G.MRMS then
 fireclickdetector(game:GetService("Workspace")["[MRMS]"].ClickDetector)
             end
@@ -1274,7 +1292,10 @@ game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Wo
         pcall(function()
             if _G.DB then
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Enemy.Sahara["Desert Bandit"].HumanoidRootPart.CFrame * CFrame.new(0,1,4)
-            end
+if game:GetService("Workspace").Enemy.Sahara["Desert Bandit"].Humanoid.Health == 0 then
+                           game:GetService("Workspace").Enemy.Sahara["Desert Bandit"]:Destroy()
+end
+        end
         end)
        end)
     end)
@@ -1284,6 +1305,16 @@ game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Wo
         pcall(function()
             if _G.KS then
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Enemy.Samurai.Kenshin.HumanoidRootPart.CFrame * CFrame.new(0,-9,1)
+            end
+        end)
+       end)
+    end)
+    
+    spawn(function()
+       game:GetService("RunService").RenderStepped:Connect(function()
+        pcall(function()
+            if _G.AutoEqiup then
+game.Players.LocalPlayer.Character.Humanoid:EquipTool(game:GetService("Players").LocalPlayer.Backpack:FindFirstChild(Weapon))
             end
         end)
        end)
