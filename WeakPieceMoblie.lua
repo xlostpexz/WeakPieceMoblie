@@ -955,7 +955,6 @@ local Home4 = DinoPage4:NewSection("Auto Eqiup")
     
     Home:CreateToggle("Auto Ace",function(value)
     _G.Ace = value
-    _G.DB = value
     _G.NoClip = value
     _G.Click = value
     end)
