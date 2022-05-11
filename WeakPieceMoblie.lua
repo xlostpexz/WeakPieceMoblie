@@ -935,6 +935,12 @@ local Home4 = DinoPage4:NewSection("Auto Eqiup")
        _G.KillAll = value
     end)
     
+    Home:CreateToggle("Auto Ice Lord",function(value)
+       _G.IL = value
+       _G.NoClip = value
+       _G.Click = value
+    end)
+    
     Home:CreateToggle("Auto KenShin",function(value)
        _G.KS = value
        _G.NoClip = value
@@ -1356,6 +1362,16 @@ end
         pcall(function()
             if _G.Shanks then
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Enemy.RedForest.SwordMan.HumanoidRootPart.CFrame * CFrame.new(0,Disc2,Disc)
+            end
+        end)
+       end)
+    end)
+    
+    spawn(function()
+       game:GetService("RunService").RenderStepped:Connect(function()
+        pcall(function()
+            if _G.IL then
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Enemy.Snow["Ice Lord"].HumanoidRootPart.CFrame * CFrame.new(0,Disc2,Disc)
             end
         end)
        end)
