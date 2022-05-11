@@ -931,14 +931,6 @@ local Home4 = DinoPage4:NewSection("Auto Eqiup")
     Disc2 = value
     end)
     
-    Home:CreateTextBox("Enter Your Name",Player,function(value)
-    Player = value
-    end)
-
-    Home:CreateToggle("Kill Aura - Light Fruit",function(value)
-       _G.KillAll = value
-    end)
-    
     Home:CreateToggle("Auto Ice Lord",function(value)
        _G.IL = value
        _G.NoClip = value
@@ -1254,36 +1246,6 @@ fireclickdetector(game:GetService("Workspace")["[Ace]"].ClickDetector)
             end
         end)
        end)
-    end)
-    
-    spawn(function()
-       game:GetService("RunService").RenderStepped:Connect(function()
-        pcall(function()
-if _G.KillAll then
-    while task.wait() do
-
-                  local args = {
-                        [1] = "RainLight",
-                    }
-                    game:GetService("Players").LocalPlayer.Character.Light.Event:FireServer(unpack(args))
-wait()
-break   
-end
-        end
-        end)
-   end)
-    end)
-    
-    spawn(function()
-       game:GetService("RunService").RenderStepped:Connect(function()
-        pcall(function()
-if _G.KillAll then
-    while wait(0.2) do
-game:GetService("Workspace").Ignorelist[Player].Cooldown2:Destroy()
-end
-        end
-        end)
-   end)
     end)
     
     spawn(function()
