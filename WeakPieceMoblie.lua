@@ -1074,6 +1074,9 @@ game.Lighting.FogEnd = math.huge
 end
 end)
 
+Home2:CreateButton("Delete Effect",function(value)
+game:GetService("ReplicatedStorage").Skills:Destroy()
+end)
 
 Home2:CreateButton("RTX",function(value)
             getgenv().mode = "Autumn" -- Choose from Summer and Autumn
