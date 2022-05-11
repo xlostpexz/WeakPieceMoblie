@@ -935,7 +935,7 @@ local Home4 = DinoPage4:NewSection("Auto Eqiup")
     Player = value
     end)
 
-    Home:CreateToggle("Kill All",function(value)
+    Home:CreateToggle("Kill Aura - Light Fruit",function(value)
        _G.KillAll = value
     end)
     
