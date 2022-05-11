@@ -1247,7 +1247,6 @@ fireclickdetector(game:GetService("Workspace")["[Ace]"].ClickDetector)
        game:GetService("RunService").RenderStepped:Connect(function()
         pcall(function()
             if _G.KillAll then
-                wait(0.3)
 while task.wait() do
 
                   local args = {
