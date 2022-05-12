@@ -1150,7 +1150,7 @@ end)
     end)
 
     Home3:CreateButton("Forest Island",function(value)
-        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-247.239441, 17.3356705, -639.695862, -0.999846876, 5.16586006e-05, 0.0175022632, 6.31982766e-05, 0.999999762, 0.00065877114, -0.0175022185, 0.000659776386, -0.999846697)
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-397.918457, 8.47844124, -770.598389, -0.667140424, -7.78477283e-09, -0.744931996, 1.14536816e-08, 1, -2.07079118e-08, 0.744931996, -2.23472991e-08, -0.667140424)
     end)
     
     Home3:CreateButton("Snow Island",function(value)
