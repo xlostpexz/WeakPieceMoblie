@@ -8,9 +8,9 @@ DINOHUB.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
 OPENCLOSE.Name = "OPENCLOSE"
 OPENCLOSE.Parent = DINOHUB
-OPENCLOSE.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+OPENCLOSE.BackgroundColor3 = Color3.fromRGB(0, 255, 155)
 OPENCLOSE.BorderSizePixel = 0
-OPENCLOSE.Position = UDim2.new(0.120833337, 0, 0.0952890813, 0)
+OPENCLOSE.Position = UDim2.new(0.08233337, 0, 0.0952890813, 0)
 OPENCLOSE.Size = UDim2.new(0.0447916649, 0, 0.0845824406, 0)
 OPENCLOSE.Font = Enum.Font.DenkOne
 OPENCLOSE.Text = "CLOSE"
