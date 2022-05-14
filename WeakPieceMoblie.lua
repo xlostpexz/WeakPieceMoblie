@@ -918,18 +918,17 @@ local DinoPage = DinoWindow:NewPage("Main")
 local DinoPage2 = DinoWindow:NewPage("Misc")
 local DinoPage3 = DinoWindow:NewPage("Teleport")
 local DinoPage4 = DinoWindow:NewPage("Auto Eqiup")
+local DinoPage5 = DinoWindow:NewPage("Raid")
 local Home = DinoPage:NewSection("Auto Farm")
 local Home2 = DinoPage2:NewSection("Misc")
 local Home3 = DinoPage3:NewSection("Teleport")
 local Home4 = DinoPage4:NewSection("Auto Eqiup")
+local Home5 = DinoPage5:NewSection("Raid")
 
-    Home:CreateTextBox("Distance Behind",Disc,function(value)
+    Home:CreateTextBox("Distance -7 -8 -12",Disc,function(value)
     Disc = value
     end)
-    
-    Home:CreateTextBox("Distance Above",Disc2,function(value)
-    Disc2 = value
-    end)
+
     
     Home:CreateToggle("Auto Ice Lord",function(value)
        _G.IL = value
@@ -985,8 +984,14 @@ local Home4 = DinoPage4:NewSection("Auto Eqiup")
        _G.Click = value
     end)
     
-    Home:CreateToggle("Auto Enel",function(value)
+    Home:CreateToggle("Auto Normal Enel",function(value)
        _G.Enel = value
+       _G.NoClip = value
+       _G.Click = value
+    end)    
+    
+    Home:CreateToggle("Auto Enel GOD",function(value)
+       _G.EnelG = value
        _G.NoClip = value
        _G.Click = value
     end)    
@@ -1181,12 +1186,22 @@ end)
     Home3:CreateButton("Samurai Island",function(value)
         game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-483.586121, 23.8142891, 2270.51099, 0.979095757, -9.60915472e-08, 0.203399837, 1.02889423e-07, 1, -2.28469066e-08, -0.203399837, 4.32970033e-08, 0.979095757)
     end)
+    
+    Home3:CreateButton("Heaven",function(value)
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-1450.09033, 1161.96606, -243.764969, 0.947539687, -1.08285931e-08, 0.319638073, -4.4101478e-09, 1, 4.69511754e-08, -0.319638073, -4.58977532e-08, 0.947539687)
+    end)
+    
+    Home5:CreateToggle("Auto Raid",function(value)
+       _G.Raid = value
+       _G.NoClip = value
+       _G.Click = value
+    end)
 
     spawn(function()
        game:GetService("RunService").RenderStepped:Connect(function()
         pcall(function()
             if _G.Yeti then
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Enemy.Snow.Yeti.HumanoidRootPart.CFrame * CFrame.new(0,Disc2,Disc)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Enemy.Snow.Yeti.HumanoidRootPart.CFrame * CFrame.new(0,Disc,0) * CFrame.Angles(math.rad(90),0,0)
             end
         end)
        end)
@@ -1196,7 +1211,7 @@ game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Wo
        game:GetService("RunService").RenderStepped:Connect(function()
         pcall(function()
             if _G.Bandit then
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Enemy.FirstIsland.Bandit.HumanoidRootPart.CFrame * CFrame.new(0,Disc2,Disc)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Enemy.FirstIsland.Bandit.HumanoidRootPart.CFrame * CFrame.new(0,Disc,0) * CFrame.Angles(math.rad(90),0,0)
 if game:GetService("Workspace").Enemy.FirstIsland.Bandit.Humanoid.Health == 0 then
                            game:GetService("Workspace").Enemy.FirstIsland.Bandit:Destroy()
 end
@@ -1209,7 +1224,7 @@ end
        game:GetService("RunService").RenderStepped:Connect(function()
         pcall(function()
             if _G.MRMS then
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Enemy.ForestIsland.Muramasa.HumanoidRootPart.CFrame * CFrame.new(0,Disc2,Disc)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Enemy.ForestIsland.Muramasa.HumanoidRootPart.CFrame * CFrame.new(0,Disc,0) * CFrame.Angles(math.rad(90),0,0)
             end
         end)
        end)
@@ -1219,7 +1234,7 @@ game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Wo
        game:GetService("RunService").RenderStepped:Connect(function()
         pcall(function()
             if _G.ZB then
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Enemy.Mushroom.Zombie.HumanoidRootPart.CFrame * CFrame.new(0,Disc2,Disc)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Enemy.Mushroom.Zombie.HumanoidRootPart.CFrame * CFrame.new(0,Disc,0) * CFrame.Angles(math.rad(90),0,0)
 if game:GetService("Workspace").Enemy.Mushroom.Zombie.Humanoid.Health == 0 then
                            game:GetService("Workspace").Enemy.Mushroom.Zombie:Destroy()
 end
@@ -1232,7 +1247,7 @@ end
        game:GetService("RunService").RenderStepped:Connect(function()
         pcall(function()
             if _G.Ace then
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Enemy.ForestIsland.Ace.HumanoidRootPart.CFrame * CFrame.new(0,Disc2,Disc)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Enemy.ForestIsland.Ace.HumanoidRootPart.CFrame * CFrame.new(0,Disc,0) * CFrame.Angles(math.rad(90),0,0)
             end
         end)
        end)
@@ -1283,7 +1298,7 @@ game.Players.LocalPlayer.Character.Humanoid:EquipTool(game:GetService("Players")
        game:GetService("RunService").RenderStepped:Connect(function()
         pcall(function()
             if _G.Jacko then
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Enemy.Mushroom["Jack O Ripper"].HumanoidRootPart.CFrame * CFrame.new(0,Disc2,Disc)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Enemy.Mushroom["Jack O Ripper"].HumanoidRootPart.CFrame * CFrame.new(0,Disc,0) * CFrame.Angles(math.rad(90),0,0)
             end
         end)
        end)
@@ -1293,7 +1308,7 @@ game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Wo
        game:GetService("RunService").RenderStepped:Connect(function()
         pcall(function()
             if _G.DB then
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Enemy.Sahara["Desert Bandit"].HumanoidRootPart.CFrame * CFrame.new(0,Disc2,Disc)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Enemy.Sahara["Desert Bandit"].HumanoidRootPart.CFrame * CFrame.new(0,Disc,0) * CFrame.Angles(math.rad(90),0,0)
 if game:GetService("Workspace").Enemy.Sahara["Desert Bandit"].Humanoid.Health == 0 then
                            game:GetService("Workspace").Enemy.Sahara["Desert Bandit"]:Destroy()
 end
@@ -1306,7 +1321,7 @@ end
        game:GetService("RunService").RenderStepped:Connect(function()
         pcall(function()
             if _G.KS then
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Enemy.Samurai.Kenshin.HumanoidRootPart.CFrame * CFrame.new(0,Disc2,Disc)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Enemy.Samurai.Kenshin.HumanoidRootPart.CFrame * CFrame.new(0,Disc,0) * CFrame.Angles(math.rad(90),0,0)
             end
         end)
        end)
@@ -1316,7 +1331,17 @@ game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Wo
        game:GetService("RunService").RenderStepped:Connect(function()
         pcall(function()
         if _G.Enel then
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Enemy.SkyPiea.Enel.HumanoidRootPart.CFrame * CFrame.new(0,Disc2,Disc)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Enemy.SkyPiea.Enel.HumanoidRootPart.CFrame * CFrame.new(0,Disc,0) * CFrame.Angles(math.rad(90),0,0)
+            end
+        end)
+       end)
+    end)
+    
+    spawn(function()
+       game:GetService("RunService").RenderStepped:Connect(function()
+        pcall(function()
+        if _G.EnelG then
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Enemy.Sky2.EnelGod.HumanoidRootPart.CFrame * CFrame.new(0,Disc,0) * CFrame.Angles(math.rad(90),0,0)
             end
         end)
        end)
@@ -1326,7 +1351,7 @@ game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Wo
        game:GetService("RunService").RenderStepped:Connect(function()
         pcall(function()
             if _G.SMR then
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Enemy.ForestIsland.Samurai.HumanoidRootPart.CFrame * CFrame.new(0,Disc2,Disc)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Enemy.ForestIsland.Samurai.HumanoidRootPart.CFrame * CFrame.new(0,Disc,0) * CFrame.Angles(math.rad(90),0,0)
 if game:GetService("Workspace").Enemy.ForestIsland.Samurai.Humanoid.Health == 0 then
                            game:GetService("Workspace").Enemy.ForestIsland.Samurai:Destroy()
 end
@@ -1339,7 +1364,7 @@ end
        game:GetService("RunService").RenderStepped:Connect(function()
         pcall(function()
             if _G.Shanks then
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Enemy.RedForest.SwordMan.HumanoidRootPart.CFrame * CFrame.new(0,Disc2,Disc)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Enemy.RedForest.SwordMan.HumanoidRootPart.CFrame * CFrame.new(0,Disc,0) * CFrame.Angles(math.rad(90),0,0)
             end
         end)
        end)
@@ -1349,7 +1374,38 @@ game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Wo
        game:GetService("RunService").RenderStepped:Connect(function()
         pcall(function()
             if _G.IL then
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Enemy.Snow["Ice Lord"].HumanoidRootPart.CFrame * CFrame.new(0,Disc2,Disc)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Enemy.Snow["Ice Lord"].HumanoidRootPart.CFrame * CFrame.new(0,Disc,0) * CFrame.Angles(math.rad(90),0,0)
+            end
+        end)
+       end)
+    end)
+    
+    local placeId = game.PlaceId
+	if placeId == 9487450292 then
+		First = true
+	elseif placeId == 9609355203 then
+		Raid = true
+	end
+	
+    spawn(function()
+       game:GetService("RunService").RenderStepped:Connect(function()
+        pcall(function()
+            if _G.Raid then
+                if First then
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(34.6641273, 95.6252594, 726.025513, 0.485765338, -2.5060026e-06, 0.874089241, -0.000205610399, 1, 0.000117132731, -0.874089241, -0.000236620966, 0.485765338)
+end
+            end
+        end)
+       end)
+    end)
+    
+    spawn(function()
+       game:GetService("RunService").RenderStepped:Connect(function()
+        pcall(function()
+            if _G.Raid then
+                if Raid then
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-6.69188023, 200.026367, -14.0853148, -0.981415331, -0.19189553, 2.52705613e-05, -2.32650541e-06, 0.000143587633, 1, -0.191895545, 0.981415331, -0.000141365555)
+end
             end
         end)
        end)
@@ -1380,7 +1436,7 @@ game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Wo
        game:GetService("RunService").RenderStepped:Connect(function()
         pcall(function()
             if _G.SW then
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").SeaWarrior["Sea Warrior"].HumanoidRootPart.CFrame * CFrame.new(0,Disc2,Disc)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").SeaWarrior["Sea Warrior"].HumanoidRootPart.CFrame * CFrame.new(0,Disc,0) * CFrame.Angles(math.rad(90),0,0)
             end
         end)
        end)
