@@ -1193,8 +1193,11 @@ end)
     
     Home5:CreateToggle("Auto Raid",function(value)
        _G.Raid = value
-       _G.NoClip = value
        _G.Click = value
+    end)
+
+    Home5:CreateToggle("Noclip",function(value)
+       _G.NoClip = value
     end)
 
     spawn(function()
