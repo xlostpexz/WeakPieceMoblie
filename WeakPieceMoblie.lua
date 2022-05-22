@@ -946,7 +946,7 @@ local Home5 = DinoPage5:NewSection("Raid")
        _G.Click = value
     end)
     
-    Home:CreateToggle("Auto Sea Warriors",function(value)
+    Home:CreateToggle("Auto Sea Beast",function(value)
        _G.SW = value
        _G.NoClip = value
        _G.Click = value
@@ -1440,7 +1440,7 @@ end
        game:GetService("RunService").RenderStepped:Connect(function()
         pcall(function()
             if _G.SW then
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").SeaWarrior["Sea Warrior"].HumanoidRootPart.CFrame * CFrame.new(0,Disc2,Disc)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").SeaBeast.SeaBeast.HumanoidRootPart.CFrame * CFrame.new(0,Disc2,Disc)
             end
         end)
        end)
